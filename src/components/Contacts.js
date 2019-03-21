@@ -36,9 +36,9 @@ class Contacts extends Component {
     const {contacts} = this.state;
 
     return(
-      <div className="card card-body mb-3">
+      <React.Fragment>
         {contacts.map(contact => (<Contact key={contact.id} contact={contact} />))}
-      </div>
+      </React.Fragment>
     )
   }
 }
