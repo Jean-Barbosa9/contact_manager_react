@@ -7,8 +7,17 @@ const Header = props => {
   const {branding} = props;
 
   return (
-    <header className="header">
-      <h1>{branding}</h1>
+    <header className="header ">
+      <nav className="menu navbar navbar-expand-sm navbar-dark bg-danger mb-3 py-0">
+        <div className="container">
+          <a className="menu__link navbar-brand" href="/">{branding}</a>
+          <ul className="menu__list navbar-nav mr-auto">
+            <li className="menu__item nav-item">
+              <a className="menu__link nav-link" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </header>
   )
 }
