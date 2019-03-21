@@ -66,3 +66,22 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `npm run build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### Manifest JSON
+manifest.json provides metadata used when your web app is installed on a user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+
+### PUBLIC_URL variable
+The use of %PUBLIC_URL% in meta tag into HTML files, will be replaced with the URL of the `public` folder during the build. Only files inside the `public` folder can be referenced from the HTML.
+
+Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will work correctly both with client-side routing and a non-root public URL. Learn how to configure a non-root public URL by running `npm run build`.
+
+### index.html file at public folder
+Its a template, wich if you open it directly in the browser, you will see an empty page.
+ You can add webfonts, meta tags, or analytics to this file.
+The build step will place the bundled scripts into the <body> tag.
+
+To begin the development, run `npm start` or `yarn start`.
+To create a production bundle, use `npm run build` or `yarn build`.
+
+### Service Worker config
+Into index.js file you can fire on service worker to the app works offline and load faster. To do that, you can just change the method unregister() to register() at serviceWorker call. Note this comes with some pitfalls. Learn more about service workers at https://bit.ly/CRA-PWA.
