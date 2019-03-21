@@ -1,46 +1,43 @@
-import React from, {Component} 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import Contact from './Contact';
 
-class Contacts extendes Component {
-  constructor () {
-    super()
+class Contacts extends Component {
 
-    this.state = {
-      contacts: [
-        {
-          id: 1,
-          name: 'John Smith',
-          email: 'johnsth@gmail.com',
-          phone: '(21) 98765-4321'
-        },
-        {
-          id: 2,
-          name="Andrew Coulson",e
-          mail="ad_coulson@yahoo.com",
-          phone="(11) 99875-1234"
-        },
-        {
-          id: 3,
-          name: 'Fernanda Silva',
-          email: 'fernanda_s@hotmail.com',
-          phone: '(22) 2255-3344'
-        },
-        {
-          id: 4,
-          name="Juliana Guimarães",
-          mail="jumaraes@gmail.com",
-          phone="(51) 3567-0607"
-        }
-      ]
-    }
+  state = {
+    contacts: [
+      {
+        id: 1,
+        name: 'John Smith',
+        email: 'johnsth@gmail.com',
+        phone: '(21) 98765-4321'
+      },
+      {
+        id: 2,
+        name: "Andrew Coulson",
+        email: "ad_coulson@yahoo.com",
+        phone: "(11) 99875-1234"
+      },
+      {
+        id: 3,
+        name: 'Fernanda Silva',
+        email: 'fernanda_s@hotmail.com',
+        phone: '(22) 2255-3344'
+      },
+      {
+        id: 4,
+        name: "Juliana Guimarães",
+        email: "jumaraes@gmail.com",
+        phone: "(51) 3567-0607"
+      }
+    ]
   }
+
   render() {
     const {contacts} = this.state;
 
     return(
       <div>
-        
+        {contacts.map(contact => (<Contact key={contact.id} contact={contact} />))}
       </div>
     )
   }
