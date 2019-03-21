@@ -36,7 +36,7 @@ class Contacts extends Component {
     const {contacts} = this.state;
 
     return(
-      <div>
+      <div className="card card-body mb-3">
         {contacts.map(contact => (<Contact key={contact.id} contact={contact} />))}
       </div>
     )
