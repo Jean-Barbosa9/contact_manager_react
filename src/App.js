@@ -11,6 +11,7 @@ class App extends Component {
         <Header branding="Contact Manager" />
         <div className="container">
           <Contact name="John Smith" email="johnsth@gmail.com" phone="(21) 98765-4321"/>
+          <Contact name="Andrew Couson" email="ad_coulson@yahoo.com" phone="(11) 99875-1234"/>
         </div>
       </div>
     );
