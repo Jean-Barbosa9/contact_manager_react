@@ -7,12 +7,17 @@ class Contact extends Component {
   state = {
     showContactInfo: false
   }
+
+  onDeleteClick = () => {
+    this.props.deleteHandler()
+  }
+
   render() {
     const {name, email, phone} = this.props.contact;
     //TODO: refatorar estilo inline por css apartado
     return(
       <div className="card card-body mb-3">
-        <h4>
+        <h4 className="my-0">
           {name}
           <i className="fas fa-sort-down"
             style={{margin: '0 5px',cursor: 'pointer'}}
@@ -21,6 +26,7 @@ class Contact extends Component {
                 if(!this.state.showContactInfo) {event.target.style.transform = 'rotate(180deg) translateY(-50%)'}else{event.target.style.transform = ''}
               }
           }></i>
+          <i className="fas fa-times text-danger align-middle float-right"  style={{cursor: 'pointer'}} onClick={this.onDeleteClick}></i>
         </h4>
         {this.state.showContactInfo ?
           (
@@ -38,7 +44,8 @@ class Contact extends Component {
 }
 
 Contact.propTypes = {
-  contact: PropTypes.object.isRequired
+  contact: PropTypes.object.isRequired, 
+  deleteHandler: PropTypes.func.isRequired
 }
 
 export default Contact;

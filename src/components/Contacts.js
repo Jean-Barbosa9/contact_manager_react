@@ -32,12 +32,14 @@ class Contacts extends Component {
     ]
   }
 
+  deleteContent = id => this.setState({contacts: this.state.contacts.filter(contact => contact.id !== id)})
+
   render() {
     const {contacts} = this.state;
 
     return(
       <React.Fragment>
-        {contacts.map(contact => (<Contact key={contact.id} contact={contact} />))}
+        {contacts.map(contact => (<Contact key={contact.id} contact={contact} deleteHandler={this.deleteContent.bind(this, contact.id)} />))}
       </React.Fragment>
     )
   }
