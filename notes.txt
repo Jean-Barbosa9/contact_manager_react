@@ -5,7 +5,7 @@
 
   Já o consumer deverá ser importado no componente, também englobando dentro do return do render todo o conteúdo que será exibido, de modo a usar o que o state que o provider está disponibilizando através do valor exportado.
 
-  Na contrução do context é chamado o método React.createContext de modo a ter acesso aos métodos Provider e Consumer, que será configurados para retornar o state (que guardará toda a informação que se queira disponibilizar para toda a aplicação) e o Consumer (que disponibilizará quaisquer informação contida no provider). Sua estrutura é de uma classe exportável que extende Component e, na importação, deverá ser usada dentro do render do componente de forma a retornar uma expressão (exemplo abaixo) onde fará todo o tratamento do componente.
+  Na contrução do context é chamado o método React.createContext de modo a ter acesso aos métodos Provider e Consumer, que serão configurados para retornar o state (que guardará toda a informação que se queira disponibilizar para toda a aplicação) e o Consumer (que disponibilizará quaisquer informação contida no provider). Sua estrutura é de uma classe exportável que extende Component e, na importação, deverá ser usada dentro do render do componente de forma a retornar uma expressão (exemplo abaixo) onde fará todo o tratamento do componente.
 
   Exemplo da estrutura de criação do context.js
 
@@ -41,22 +41,3 @@
     )
   </Consumer>
 
-  Anotações para impletação da aula 25 e 26:
-    Ao fazer isso todos os bind de cliques criados que se baseiem no state que estava sendo guardado em Contacts.js deverá ser refeito, considerando que agora essa informação estará no global state.
-    Deve ser criada uma função dentro do context.js que retornará diferentes ações de acordo com o respectivo parâmetro passado (na aula ele usa o switch, recebendo como parâmetro o tipo da ação, que é uma string, mas também pode ser usado if e else ou ainda o próprio método reducer do ES6, que ele indica ser usado em aplicações muito grandes. No caso do switch, por padrão ele retorna o state inteiro e na ação que tem uma opção de deletar ele retorna os contatos filtrados, comparando o id do contato com uma das propriedades que serão passadas no objeto "action").
-    Dessa forma não será necessário o bind sendo passado via props entre componentes até a aplicação principal, para manipular o global state. No caso ele chama de reducer passando o state e a action como parâmetros, que serão passados como objetos.
-    Esse reducer é inserido no global state com a chave "dispatch" recebendo como value uma arrow function tendo action como parâmetro que retorna a manipulação de state (this.setState) que recebe uma nova arrow function tendo como parâmetro state e retorna o reducer, que por sua vez usa o state e o action como parâmetros. Para melhor ilustrar segue abaixo a estrutura mencionada:
-      state = {
-        ...,
-        dispatch: action => this.setState(state => reducer(state, action))
-      }
-    Por fim, no onClick do elemento que deverá executar uma ação, é feito o bind para o método que executará a ação do componente (delete, por exemplo), passando o dispatch como parâmetro que por sua vez será chamado dentro da execução do delete de forma que dispatch receberá por exemplo {type: DELETE_CONTACT, payload: id}.
-
-#Classes bootstrap utilizadas na aula 27
-
-  Para o nome do componente de adicionar contato: card mb-3
-  Para a div com o nome do componente: card-header
-  Para a div com o conteúdo do componente: card-body
-  Para a div com cada conjunto label + input: form-group
-  Para cada input: form-control form-control-lg
-  Para o botão de submit do formulário: btn btn-light btn-block
