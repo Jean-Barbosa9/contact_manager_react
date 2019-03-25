@@ -5,8 +5,6 @@ import { Consumer } from '../context'
 
 class Contacts extends Component {
 
-  deleteContent = id => this.setState({contacts: this.state.contacts.filter(contact => contact.id !== id)})
-
   render () {
     return (
       <Consumer>
@@ -18,7 +16,6 @@ class Contacts extends Component {
                 <Contact 
                   key={contact.id}
                   contact={contact}
-                  deleteHandler={this.deleteContent.bind(this, contact.id)}
                 />
               ))}
             </React.Fragment>
@@ -30,4 +27,3 @@ class Contacts extends Component {
 }
 
 export default Contacts;
-//Propriedade de Contact que será substituída pela chamada do reducer em Contact
