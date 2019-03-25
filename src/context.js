@@ -43,8 +43,8 @@ export class Provider extends Component {
         email: "jumaraes@gmail.com",
         phone: "(51) 3567-0607"
       }
-    ]
-    ,dispatch: action => this.setState(state => reducer(state,action))
+    ],
+    dispatch: action => this.setState(state => reducer(state,action))
   }
 
 

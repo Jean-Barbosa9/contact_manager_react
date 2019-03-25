@@ -51,3 +51,12 @@
         dispatch: action => this.setState(state => reducer(state, action))
       }
     Por fim, no onClick do elemento que deverá executar uma ação, é feito o bind para o método que executará a ação do componente (delete, por exemplo), passando o dispatch como parâmetro que por sua vez será chamado dentro da execução do delete de forma que dispatch receberá por exemplo {type: DELETE_CONTACT, payload: id}.
+
+#Classes bootstrap utilizadas na aula 27
+
+  Para o nome do componente de adicionar contato: card mb-3
+  Para a div com o nome do componente: card-header
+  Para a div com o conteúdo do componente: card-body
+  Para a div com cada conjunto label + input: form-group
+  Para cada input: form-control form-control-lg
+  Para o botão de submit do formulário: btn btn-light btn-block
