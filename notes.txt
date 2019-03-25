@@ -5,7 +5,7 @@
 
   Já o consumer deverá ser importado no componente, também englobando dentro do return do render todo o conteúdo que será exibido, de modo a usar o que o state que o provider está disponibilizando através do valor exportado.
 
-  Na contrução do context é chamado o método React.createContext de modo a ter acesso aos métodos Provider e Consumer, que será configurados para retornar o state (que guardará toda a informação que se queira disponibilizar para toda a aplicação) e o Consumer (que disponibilizará quaisquer informação contida no provider). Sua estrutura é de uma classe exportável que extende Component e, na importação, deverá ser usada dentro do render do componente de forma a returnar uma expressão (exemplo abaixo) onde fará todo o tratamento do componente.
+  Na contrução do context é chamado o método React.createContext de modo a ter acesso aos métodos Provider e Consumer, que será configurados para retornar o state (que guardará toda a informação que se queira disponibilizar para toda a aplicação) e o Consumer (que disponibilizará quaisquer informação contida no provider). Sua estrutura é de uma classe exportável que extende Component e, na importação, deverá ser usada dentro do render do componente de forma a retornar uma expressão (exemplo abaixo) onde fará todo o tratamento do componente.
 
   Exemplo da estrutura de criação do context.js
 

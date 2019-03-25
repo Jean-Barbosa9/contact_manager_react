@@ -9,13 +9,15 @@ class Contact extends Component {
   }
 
   onDeleteClick = () => {
-    this.props.deleteHandler()
+    // this.props.deleteHandler()
+    console.log('Falta criar o reducer com o método que manuseará o global state');
   }
 
   render() {
-    const {name, email, phone} = this.props.contact;
+    const {id, name, email, phone} = this.props.contact;
+
     //TODO: refatorar estilo inline por css apartado
-    return(
+    return (
       <div className="card card-body mb-3">
         <h4 className="my-0">
           {name}
@@ -45,7 +47,7 @@ class Contact extends Component {
 
 Contact.propTypes = {
   contact: PropTypes.object.isRequired, 
-  deleteHandler: PropTypes.func.isRequired
+  // deleteHandler: PropTypes.func.isRequired
 }
 
 export default Contact;
