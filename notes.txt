@@ -1,0 +1,45 @@
+<== Anotações provisórias até que eu entenda completamente todo o funcionamento ==>
+#Context API and Provider:
+
+  Um Context API se baseia em um provider e em um consumer, onde o provider vai ser responsável por prover o global state que toda a aplicação poderá usar. Esse provider deve ser importado dentro do módulo principal da aplicação (no caso do exercío no App.js). Será usado de modo a envolver todo o conteúdo da aplicação.
+
+  Já o consumer deverá ser importado no componente, também englobando dentro do return do render todo o conteúdo que será exibido, de modo a usar o que o state que o provider está disponibilizando através do valor exportado.
+
+  Na contrução do context é chamado o método React.createContext de modo a ter acesso aos métodos Provider e Consumer, que será configurados para retornar o state (que guardará toda a informação que se queira disponibilizar para toda a aplicação) e o Consumer (que disponibilizará quaisquer informação contida no provider). Sua estrutura é de uma classe exportável que extende Component e, na importação, deverá ser usada dentro do render do componente de forma a returnar uma expressão (exemplo abaixo) onde fará todo o tratamento do componente.
+
+  Exemplo da estrutura de criação do context.js
+
+  import React, {Component} from 'reac';
+
+  const Context = React.createContext();
+
+  //Será importado dentro do arquivo principal da aplicação, para ter acesso ao global state e suas propriedades, disponíveis através da propriedade "value" (no caso do exemplo abaixo)
+  export class Provider extends Component {
+    state = {
+      //todo o conteúdo que deseja disponibilizar
+    }
+
+    render () {
+      return (
+        <Context.Provider value={this.state} >
+          {this.props.children}
+        </Context.Provider>
+      )
+    }
+  }
+
+  //Será importado nos componentes que quiserem consumer o global state
+  export const Consumer = Context.Consumer
+
+  //Exemplo de uso do Consumer (considerando o exemplo deste projeto)
+  <Consumer>
+    return (
+      {value => {
+          aqui virá todo o tratamento necessário do componente, considerando que nesse caso deverá considerar que todas as propriedades estarão guardadas dentro de value.
+        }
+      }
+    )
+  </Consumer>
+
+  Anotações para impletação da aula 25 e 26:
+    Ao fazer isso todos os bind de cliques criados que se baseiem no state que estava sendo guardado em Contacts.js deverá ser refeito, considerando que agora essa informação estará no global state. Pelo que entendi um outro handler deverá ser criado com as ações que se deseja nos binds que manipulem o global state (que no caso ele chama de reducer for actions).
