@@ -25,7 +25,7 @@ class Contact extends Component {
               <h4 className="my-0">
                 {name}
                 <i className="fas fa-sort-down"
-                  style={{margin: '0 5px',cursor: 'pointer'}}
+                  style={{padding: '0 10px',cursor: 'pointer'}}
                   onClick={event => {
                       this.setState({showContactInfo: !this.state.showContactInfo})
                       if(!this.state.showContactInfo) {event.target.style.transform = 'rotate(180deg) translateY(-50%)'}else{event.target.style.transform = ''}
