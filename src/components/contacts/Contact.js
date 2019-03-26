@@ -32,7 +32,7 @@ class Contact extends Component {
                     }
                 }></i>
                 <i className="fas fa-times text-danger align-middle float-right"  style={{cursor: 'pointer'}} onClick={this.onDeleteClick.bind(this, id, dispatch)}></i>
-              </h4>
+                </h4>
               {this.state.showContactInfo ?
                 (
                   <ul className="list-group">
