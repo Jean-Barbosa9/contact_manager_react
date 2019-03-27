@@ -8,7 +8,7 @@ class AddContact extends Component {
     name: '',
     email: '',
     phone: '',
-    showForm: false,
+    showForm: true,
     errors: {}
   }
 
@@ -59,17 +59,17 @@ class AddContact extends Component {
               <div 
                 className="card-header"
                 style={{cursor: 'pointer'}}
+                /*
                 onClick={event => {
                     this.setState({showForm: !this.state.showForm})
-                    /*
                       if(!this.state.showForm) {event.target.style.transform = 'rotate(180deg) translateY(-50%)'}else{event.target.style.transform = ''}
                       aguardando para aprender em como mexer nos nós filhos, pois a ideia é rotacionar apenas o ícone
-                    */
-                  }
-                }
+                }}
+                Esse ícone na verdade é adicionado após o texto "Add Contact". Estou vendo uma forma melhor de fazer isso, por conta de agora estar usando o BrowserRouter
+                <i className="fas fa-sort-down float-right" style={{padding: '0 10px'}}></i>
+                */
               >
                 Add Contact
-                <i className="fas fa-sort-down float-right" style={{padding: '0 10px'}}></i>
               </div>
               {this.state.showForm ? (
                 <div className="card-body">
