@@ -5,6 +5,7 @@ import { Provider } from './context';
 import Header from './components/layouts/Header';
 import AddContact from './components/contacts/AddContact';
 import About from './components/pages/About';
+import LifeCycle from './components/test/LifeCycle';
 import NotFound from './components/pages/NotFound';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -22,6 +23,7 @@ class App extends Component {
                 <Route exact path="/contact/add" component={AddContact} />
                 <Route exact path="/about/" component={About} />
                 <Route exact path="/about/:name" component={About} />
+                <Route exact path="/life-cycle-refs" component={LifeCycle} />
                 <Route component={NotFound} />
               </Switch>
             </div>
