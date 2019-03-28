@@ -2,7 +2,7 @@
   "name": "contact_manager_react",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Jean-Barbosa9.github.io/contact_manager_react",
+  "homepage": "https://jean-barbosa9.github.io/contact_manager_react",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
