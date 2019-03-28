@@ -59,7 +59,7 @@ export class Provider extends Component {
   }
 
   async componentDidMount() {
-    const res = await axios.get('http://jsonplaceholder.typicode.com/users')
+    const res = await axios.get('//jsonplaceholder.typicode.com/users')
     this.setState({contacts: res.data})
   }
 

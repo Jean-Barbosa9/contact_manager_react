@@ -30,7 +30,7 @@ class AddContact extends Component {
       return;
     }
 
-    const res = await axios.post('http://jsonplaceholder.typicode.com/users', {name,email,phone})
+    const res = await axios.post('//jsonplaceholder.typicode.com/users', {name,email,phone})
     dispatch({type: 'ADD_CONTACT', payload: res.data})
 
     this.setState({

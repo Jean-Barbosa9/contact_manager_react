@@ -16,7 +16,7 @@ class Contact extends Component {
 
     // Just to simulate, cause jsonplaceholde doesn't succeed with delete request of new contacts
     try{
-      await axios.delete(`http://jsonplaceholder.typicode.com/users/${id}`)
+      await axios.delete(`//jsonplaceholder.typicode.com/users/${id}`)
       dispatch({type: 'DELETE_CONTACT', payload: id})
     }
     catch (e) {

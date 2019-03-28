@@ -9,7 +9,7 @@ class LifeCycle extends Component {
 
   componentDidMount () {
     console.log("componentDidMount will fires after the actual component had fished to be mounted");
-    fetch('https://jsonplaceholder.typicode.com/posts/1')
+    fetch('//jsonplaceholder.typicode.com/posts/1')
       .then(response => response.json())
       .then(data => this.setState({title: data.title, body: data.body}))
   }

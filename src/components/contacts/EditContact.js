@@ -15,7 +15,7 @@ class AddContact extends Component {
 
   async componentDidMount () {
     const { id } = this.state
-    const res = await axios.get(`http://jsonplaceholder.typicode.com/users/${id}`)
+    const res = await axios.get(`//jsonplaceholder.typicode.com/users/${id}`)
     const {name, email, phone} = res.data
     this.setState({name, email, phone})
   }
@@ -38,7 +38,7 @@ class AddContact extends Component {
       return;
     }
 
-    const res = await axios.put(`http://jsonplaceholder.typicode.com/users/${id}`, {name,email,phone})
+    const res = await axios.put(`//jsonplaceholder.typicode.com/users/${id}`, {name,email,phone})
     dispatch({type: 'UPDATE_CONTACT', payload: res.data})
 
     this.setState({
