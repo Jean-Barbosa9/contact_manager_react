@@ -10,6 +10,7 @@ class Contact extends Component {
     showContactInfo: false
   }
 
+  toggleShowContact = event => this.setState({showContactInfo: !this.state.showContactInfo})
   onDeleteClick = (id, dispatch) => axios.delete(`http://jsonplaceholder.typicode.com/users/${id}`).then(res => dispatch({type: 'DELETE_CONTACT', payload: id}))
 
   render() {
@@ -23,16 +24,17 @@ class Contact extends Component {
 
           return (
             <div className="card card-body mb-3">
-              <h4 className="my-0">
-                {name}
-                <i className="fas fa-sort-down"
+              <h4 className="my-0" style={{padding: '0 10px',cursor: 'pointer'}} >
+                <span
+                  onClick={this.toggleShowContact}
+                  style={{cursor: 'pointer'}}
+                >{name}</span>  
+                <i
+                  className="fas fa-sort-down"
                   style={{padding: '0 10px',cursor: 'pointer'}}
-                  onClick={event => {
-                      this.setState({showContactInfo: !this.state.showContactInfo})
-                      if(!this.state.showContactInfo) {event.target.style.transform = 'rotate(180deg) translateY(-50%)'}else{event.target.style.transform = ''}
-                    }
-                }></i>
-                <i className="fas fa-times text-danger align-middle float-right"  style={{cursor: 'pointer'}} onClick={this.onDeleteClick.bind(this, id, dispatch)}></i>
+                  onClick={this.toggleShowContact}
+                ></i>
+                <i className="fas fa-times text-danger align-middle float-right" style={{cursor: 'pointer'}} onClick={this.onDeleteClick.bind(this, id, dispatch)}></i>
                 </h4>
               {this.state.showContactInfo ?
                 (
