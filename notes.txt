@@ -41,3 +41,15 @@
     )
   </Consumer>
 
+Ideias para melhorar o projeto:
+
+  - Fazer a responsividade do menu;
+  - Criar uma página de contatos, para exibir a list e deixar a home como parte introdutório ou colocar essas informações na página about;
+  - Criar seletor de idioma, com as bandeirinhas do país (talvez seja o caso de usar o Context API pra isso, de forma que persista para todas as páginas e componentes através do Provider e do Consumer);
+  - Criar a opções de ordenar os contatos por nome e outros campos que venham no jsonplaceholder. dá pra usar pra isso por exemplo:
+  
+  contacts.sort((a, b) => {
+      if (a.name > b.name) return 1
+      if (a.name < b.name) return -1
+      return 0;
+    })
