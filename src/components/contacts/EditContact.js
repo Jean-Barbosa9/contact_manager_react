@@ -3,7 +3,7 @@ import { Consumer } from '../../context'
 import TextInputGroup from '../layouts/TextInputGroup'
 import axios from 'axios';
 
-class AddContact extends Component {
+class EditContact extends Component {
   state = {
     id: this.props.match.params.id,
     name: '',
@@ -13,12 +13,14 @@ class AddContact extends Component {
     errors: {}
   }
 
-  async componentDidMount () {
-    const { id } = this.state
-    const res = await axios.get(`//jsonplaceholder.typicode.com/users/${id}`)
-    const {name, email, phone} = res.data
-    this.setState({name, email, phone})
-  }
+  /*
+    Quando for fazer uma requisição via API para montar os dados do usuário no formulário a partir de um banco de dados, por exemplo, deverá ser usado no componentDidMount
+    async componentDidMount () {
+      const res = await axios.get(`//jsonplaceholder.typicode.com/users/${this.state.id}`),
+        {name, email, phone} = res.data
+      this.setState({name, email, phone})
+    }
+  */
 
   onChange = (e) => this.setState({[e.target.name]: e.target.value});
   onSubmit = async (dispatch, e) => {
@@ -55,11 +57,16 @@ class AddContact extends Component {
   }
 
   render() {
-    const { name, email, phone, errors } = this.state
+    /*
+      Seguindo com o exemplo de usar os dados do usuário, a partir do retorno da API, os dados precisariam ser resgatados do state, uma vez que foram setados no componentDidMount
+      const { id, name, email, phone, errors } = this.state
+    */
+    const { id, errors } = this.state
     return (
       <Consumer>
         {value => {
           const { dispatch } = value
+          const { name, email, phone } = value.contacts.filter(contact => contact.id == id)[0]
           return (
             <div className='card mb-3'>
               <div 
@@ -123,4 +130,4 @@ class AddContact extends Component {
     }
   }
   
-  export default AddContact;
+  export default EditContact;
