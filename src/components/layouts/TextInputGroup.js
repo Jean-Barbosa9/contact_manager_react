@@ -1,29 +1,42 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import React from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
 
-const TextInputGroup = ({label, type, name, placeholder, value, onChange, required, error}) => {
+const TextInputGroup = ({
+  label,
+  type,
+  name,
+  placeholder,
+  value,
+  defaultValue,
+  onChange,
+  required,
+  error
+}) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-      <input 
+      <input
         type={type}
         name={name}
-        className={classnames('form-control form-control-lg', {'is-invalid': error})}
+        className={classnames("form-control form-control-lg", {
+          "is-invalid": error
+        })}
         placeholder={placeholder}
+        defaultValue={defaultValue}
         value={value}
         onChange={onChange}
         error={error}
       />
-      {error ? (<span className="invalid-feedback">{error}</span>) : null }
+      {error ? <span className="invalid-feedback">{error}</span> : null}
     </div>
-  )
-}
+  );
+};
 
 TextInputGroup.defaultProps = {
-  type: 'text',
+  type: "text",
   required: false
-}
+};
 
 TextInputGroup.propTypes = {
   label: PropTypes.string.isRequired,
@@ -32,7 +45,7 @@ TextInputGroup.propTypes = {
   placeholder: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  error: PropTypes.string.isRequired
-}
+  error: PropTypes.string
+};
 
 export default TextInputGroup;
